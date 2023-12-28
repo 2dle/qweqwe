@@ -1,0 +1,7 @@
+<p id="moves" hx-get="/moves" hx-target="this" hx-swap="innerHTML" hx-trigger="moves from:body">Moves: 
+  <input id="moves_field" name="moves" hx-get="/set_moves" hx-target="#field" hx-trigger="keyup changed delay:500ms"
+    {% if moves %} 
+      placeholder="{{ moves }}"
+    {% endif %}
+  > 
+</p>

@@ -1,0 +1,19 @@
+<table id="field">
+{% for y in range(3) %}
+  <tr>
+    {% for x in range(3) %}
+      {% if field.get_cell(x, y) %}
+        <th>
+          {% if field.get_cell(x, y) == 'X' %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png">
+          {% elif field.get_cell(x, y) == 'O' %}
+            <img src='https://upload.wikimedia.org/wikipedia/commons/0/0e/Deseret_capital_long_O.svg'>
+          {% endif %}
+        </th>
+      {% else %}
+        <th hx-get="/move?x={{ x }}&y={{ y }}" hx-trigger="click" hx-target="this" hx-swap="outerHTML"></th>
+      {% endif %}
+    {% endfor %}
+  </tr>
+{% endfor %}
+</table>

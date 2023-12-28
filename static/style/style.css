@@ -1,0 +1,27 @@
+th {
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+input {
+  width: 400px;
+}
+
+.hidden {
+  display: none;
+}
+
+.red {
+  background-color: red;
+}
+
+#moves {
+  padding: 8px;
+  background-color: lightgray;
+}

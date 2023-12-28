@@ -1,0 +1,30 @@
+<html hx-swap-oob="true" id="page">
+  <head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    <script>
+      document.addEventListener('end_game', ()=>{
+        document.getElementById('endgameflag').className = ""
+      }, false);
+
+      function join() {
+        location.replace("/room/" + document.getElementById("room_id").value)
+      }
+    </script>
+  </head>
+  <body>
+    <p style="color: red" class="hidden" id="endgameflag">End game</p>
+    {% include 'def_field.html' %}
+    {% include 'moves.html' %} 
+    <button hx-get="/new-game" hx-trigger="click">New game</button>
+    <div class="to-mp">
+      <a href="/create"><button>Create room</button></a>
+      or
+      <input id="room_id" placeholder="Room ID">
+      <button onclick="join()">Join to room</button>
+    </div>
+  </body>
+</html>
+
